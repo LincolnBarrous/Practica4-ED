@@ -1,5 +1,8 @@
-INCLUDE = .
+INC=inc
+SRC=src
+BIN=bin
+OBJ=obj
 
-usoguia : usoguia.cpp 
-	g++  -o usoguia -I$(INCLUDE) usoguia.cpp 
+$(BIN)/usoguia : $(SRC)/usoguia.cpp 
+	g++  -o $@ -I$(INCLUDE) $< 
 

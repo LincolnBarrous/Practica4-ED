@@ -1,2 +1,0 @@
-1. que son los typename y donde tienen que ir
-2. no se hacer el void Copiar(const Diccionario<T, U> &D) con el iterador de la clase, porque usa el metodo assign(list::iterator, list::iterator)
