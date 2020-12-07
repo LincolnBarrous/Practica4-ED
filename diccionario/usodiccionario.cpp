@@ -83,16 +83,42 @@ int main()
 {
 	Diccionario<string, string> D;
 
+
 	cin >> D;
-	//cout<<D;
+	cout << "DICCIONARIO 1 : " << endl;
+	cout<<D;
 
+	
+	Diccionario<string, string> D2;
+	cin >> D2;
+	cout << "DICCIONARIO 2 : " << endl;
+	cout << D2;
+/*
 	string a;
+	*/
+	/*
+	cout << "Union de diccionarios" << endl;
+	Diccionario<string, string> U = D.unionDiccionarios(D2);
 
-	cout << "Introduce una palabra" << endl;
-	cin >> a;
+	cout << U << endl;
+	*/
 
-	list<string> l = D.getInfo_Asoc(a);
+	/*
 
-	if (l.size() > 0)
-		EscribeSigni(l);
+	string inicio;
+	cout << "Clave de inicio: " << endl;
+	cin >> inicio;
+
+	string fin;
+	cout << "Clave de final: " << endl;
+	cin >> fin;
+
+	Diccionario<string,string> rango = D.sacarRango(inicio, fin);
+	cout << rango;
+	*/
+
+	cout << "Diferencia D1-D2 : " << endl;
+	cout << D.diferenciaDiccionarios(D2) << endl;
+
+
 }

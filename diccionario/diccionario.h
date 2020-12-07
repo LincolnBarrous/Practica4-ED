@@ -204,11 +204,13 @@ public:
 	 */
 	void AddSignificado_Palabra(const U &s, const T &p)
 	{
-		typename list<data<T, U>>::iterator it;
+		iterator it;
 
 		if (!Esta_Clave(p, it))
 		{
-			datos.insert(it, p);
+			data<T,U> dato_nuevo;
+			dato_nuevo.clave = p;
+			datos.insert(it.dit, dato_nuevo);
 		}
 
 		//Insertamos el siginificado al final
@@ -334,7 +336,7 @@ public:
 	/**
 	 * 
 	 */
-	Diccionario<T,U> sacarRango (T inicio, T final);
+	Diccionario<T,U> sacarRango (const T& inicio, const T& final);
 
 	/**
 	 * 
