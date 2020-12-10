@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['_7ediccionario',['~Diccionario',['../classDiccionario.html#a006b21559ae7e1b449c785fc47dfb04d',1,'Diccionario']]]
+  ['uniondiccionarios',['unionDiccionarios',['../classDiccionario.html#afa915dec9a281340b8de575026131e7f',1,'Diccionario']]]
 ];

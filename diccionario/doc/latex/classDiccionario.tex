@@ -13,9 +13,9 @@ T.\+D.\+A \hyperlink{classDiccionario}{Diccionario}.
 \begin{DoxyCompactItemize}
 \item 
 class \hyperlink{classDiccionario_1_1const__iterator}{const\+\_\+iterator}
-\item 
+\begin{DoxyCompactList}\small\item\em Clase \hyperlink{classDiccionario_1_1const__iterator}{Diccionario\+::const\+\_\+iterator}. \end{DoxyCompactList}\item 
 class \hyperlink{classDiccionario_1_1iterator}{iterator}
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Clase \hyperlink{classDiccionario_1_1iterator}{Diccionario\+::iterator}. \end{DoxyCompactList}\end{DoxyCompactItemize}
 \subsection*{Métodos públicos}
 \begin{DoxyCompactItemize}
 \item 
@@ -46,16 +46,13 @@ int \hyperlink{classDiccionario_aa576b001759429fd58210ca57257d6f8}{size} () cons
 \hyperlink{classDiccionario_1_1const__iterator}{const\+\_\+iterator} \hyperlink{classDiccionario_ac4e5b5c7800bf3df103ca6b58f118598}{cend} () const
 \begin{DoxyCompactList}\small\item\em Iterador constante del final de la lista. \end{DoxyCompactList}\item 
 bool \hyperlink{classDiccionario_ab4c7aabdad91cf517db259a371984cdf}{borrar\+Clave} (T clave)
-\item 
-\mbox{\Hypertarget{classDiccionario_afa915dec9a281340b8de575026131e7f}\label{classDiccionario_afa915dec9a281340b8de575026131e7f}} 
-\hyperlink{classDiccionario}{Diccionario}$<$ T, U $>$ {\bfseries union\+Diccionarios} (const \hyperlink{classDiccionario}{Diccionario}$<$ T, U $>$ \&otro)
-\item 
-\mbox{\Hypertarget{classDiccionario_a13c55d999b1bcc0a0319659f5bc5dba4}\label{classDiccionario_a13c55d999b1bcc0a0319659f5bc5dba4}} 
-\hyperlink{classDiccionario}{Diccionario}$<$ T, U $>$ {\bfseries sacar\+Rango} (const T \&inicio, const T \&final)
-\item 
-\mbox{\Hypertarget{classDiccionario_aeb9185c8e3f815b19c4f6b1811587787}\label{classDiccionario_aeb9185c8e3f815b19c4f6b1811587787}} 
-\hyperlink{classDiccionario}{Diccionario}$<$ T, U $>$ {\bfseries diferencia\+Diccionarios} (const \hyperlink{classDiccionario}{Diccionario}$<$ T, U $>$ \&otro)
-\end{DoxyCompactItemize}
+\begin{DoxyCompactList}\small\item\em Borrar todo el contenido de una clave. \end{DoxyCompactList}\item 
+\hyperlink{classDiccionario}{Diccionario}$<$ T, U $>$ \hyperlink{classDiccionario_afa915dec9a281340b8de575026131e7f}{union\+Diccionarios} (const \hyperlink{classDiccionario}{Diccionario}$<$ T, U $>$ \&otro)
+\begin{DoxyCompactList}\small\item\em Suma de diccionarios. \end{DoxyCompactList}\item 
+\hyperlink{classDiccionario}{Diccionario}$<$ T, U $>$ \hyperlink{classDiccionario_a13c55d999b1bcc0a0319659f5bc5dba4}{sacar\+Rango} (const T \&inicio, const T \&final)
+\begin{DoxyCompactList}\small\item\em Rango de entradas. \end{DoxyCompactList}\item 
+\hyperlink{classDiccionario}{Diccionario}$<$ T, U $>$ \hyperlink{classDiccionario_aeb9185c8e3f815b19c4f6b1811587787}{diferencia\+Diccionarios} (const \hyperlink{classDiccionario}{Diccionario}$<$ T, U $>$ \&otro)
+\begin{DoxyCompactList}\small\item\em Resta de diccionarios. \end{DoxyCompactList}\end{DoxyCompactItemize}
 
 
 \subsection{Descripción detallada}
@@ -149,7 +146,19 @@ Un objeto de la clase \hyperlink{classDiccionario_1_1iterator}{Diccionario\+::it
 {\footnotesize\ttfamily template$<$class T, class U$>$ \\
 bool \hyperlink{classDiccionario}{Diccionario}$<$ T, U $>$\+::borrar\+Clave (\begin{DoxyParamCaption}\item[{T}]{clave }\end{DoxyParamCaption})}
 
-MÉ\+T\+O\+D\+OS A\+D\+I\+C\+I\+O\+N\+A\+L\+ES \mbox{\Hypertarget{classDiccionario_a8d18a8044a6c1a1482762fd84ab37017}\label{classDiccionario_a8d18a8044a6c1a1482762fd84ab37017}} 
+
+
+Borrar todo el contenido de una clave. 
+
+MÉ\+T\+O\+D\+OS A\+D\+I\+C\+I\+O\+N\+A\+L\+ES 
+\begin{DoxyParams}{Parámetros}
+{\em clave} & La clave que identifica la entrada del diccionario \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+true si se ha eliminado, false si no se ha eliminado (no estaba) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDiccionario_a8d18a8044a6c1a1482762fd84ab37017}\label{classDiccionario_a8d18a8044a6c1a1482762fd84ab37017}} 
 \index{Diccionario@{Diccionario}!cbegin@{cbegin}}
 \index{cbegin@{cbegin}!Diccionario@{Diccionario}}
 \subsubsection{\texorpdfstring{cbegin()}{cbegin()}}
@@ -176,6 +185,25 @@ Iterador constante del final de la lista.
 
 \begin{DoxyReturn}{Devuelve}
 Un objeto de la clase list\+::const\+\_\+iterator que apunta al final de datos 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDiccionario_aeb9185c8e3f815b19c4f6b1811587787}\label{classDiccionario_aeb9185c8e3f815b19c4f6b1811587787}} 
+\index{Diccionario@{Diccionario}!diferencia\+Diccionarios@{diferencia\+Diccionarios}}
+\index{diferencia\+Diccionarios@{diferencia\+Diccionarios}!Diccionario@{Diccionario}}
+\subsubsection{\texorpdfstring{diferencia\+Diccionarios()}{diferenciaDiccionarios()}}
+{\footnotesize\ttfamily template$<$class T, class U$>$ \\
+\hyperlink{classDiccionario}{Diccionario}$<$T,U$>$ \hyperlink{classDiccionario}{Diccionario}$<$ T, U $>$\+::diferencia\+Diccionarios (\begin{DoxyParamCaption}\item[{const \hyperlink{classDiccionario}{Diccionario}$<$ T, U $>$ \&}]{otro }\end{DoxyParamCaption})}
+
+
+
+Resta de diccionarios. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em otro} & El diccionario que nos dice qué entradas eliminar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+El diccionario llamante sin las entradas de otro 
 \end{DoxyReturn}
 \mbox{\Hypertarget{classDiccionario_adb5cdbfce59b4005bd07473273df3a8e}\label{classDiccionario_adb5cdbfce59b4005bd07473273df3a8e}} 
 \index{Diccionario@{Diccionario}!end@{end}}
@@ -268,7 +296,28 @@ Operador de asignación.
 \begin{DoxyReturn}{Devuelve}
 Una referencia al diccionario copiado (para asignaciones encadenadas)
 \end{DoxyReturn}
-Se usan los métodos auxiliares privados Copiar y Borrar \mbox{\Hypertarget{classDiccionario_aa576b001759429fd58210ca57257d6f8}\label{classDiccionario_aa576b001759429fd58210ca57257d6f8}} 
+Se usan los métodos auxiliares privados Copiar y Borrar \mbox{\Hypertarget{classDiccionario_a13c55d999b1bcc0a0319659f5bc5dba4}\label{classDiccionario_a13c55d999b1bcc0a0319659f5bc5dba4}} 
+\index{Diccionario@{Diccionario}!sacar\+Rango@{sacar\+Rango}}
+\index{sacar\+Rango@{sacar\+Rango}!Diccionario@{Diccionario}}
+\subsubsection{\texorpdfstring{sacar\+Rango()}{sacarRango()}}
+{\footnotesize\ttfamily template$<$class T, class U$>$ \\
+\hyperlink{classDiccionario}{Diccionario}$<$T,U$>$ \hyperlink{classDiccionario}{Diccionario}$<$ T, U $>$\+::sacar\+Rango (\begin{DoxyParamCaption}\item[{const T \&}]{inicio,  }\item[{const T \&}]{final }\end{DoxyParamCaption})}
+
+
+
+Rango de entradas. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em inicio} & El inicio del rango \\
+\hline
+{\em final} & El final del rango \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+Se devuelve como un \hyperlink{classDiccionario}{Diccionario} el subconjunto de entradas entre inicio y final ambas incluidas 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDiccionario_aa576b001759429fd58210ca57257d6f8}\label{classDiccionario_aa576b001759429fd58210ca57257d6f8}} 
 \index{Diccionario@{Diccionario}!size@{size}}
 \index{size@{size}!Diccionario@{Diccionario}}
 \subsubsection{\texorpdfstring{size()}{size()}}
@@ -282,7 +331,26 @@ Consultor del tamaño del diccionario.
 \begin{DoxyReturn}{Devuelve}
 El número de elementos de la lista 
 \end{DoxyReturn}
+\mbox{\Hypertarget{classDiccionario_afa915dec9a281340b8de575026131e7f}\label{classDiccionario_afa915dec9a281340b8de575026131e7f}} 
+\index{Diccionario@{Diccionario}!union\+Diccionarios@{union\+Diccionarios}}
+\index{union\+Diccionarios@{union\+Diccionarios}!Diccionario@{Diccionario}}
+\subsubsection{\texorpdfstring{union\+Diccionarios()}{unionDiccionarios()}}
+{\footnotesize\ttfamily template$<$class T, class U$>$ \\
+\hyperlink{classDiccionario}{Diccionario}$<$T,U$>$ \hyperlink{classDiccionario}{Diccionario}$<$ T, U $>$\+::union\+Diccionarios (\begin{DoxyParamCaption}\item[{const \hyperlink{classDiccionario}{Diccionario}$<$ T, U $>$ \&}]{otro }\end{DoxyParamCaption})}
 
+
+
+Suma de diccionarios. 
+
+
+\begin{DoxyParams}{Parámetros}
+{\em otro} & El diccionario que se suma con el llamante \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Devuelve}
+El diccionario que resulta de unirlos
+\end{DoxyReturn}
+Se unen las definiciones de las entradas que están en ambos y se añaden tal cual las entradas que estén solo en uno de ellos 
 
 La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
 \item 

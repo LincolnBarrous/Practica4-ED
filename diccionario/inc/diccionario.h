@@ -258,6 +258,12 @@ public:
 
 	// ----------------------------------------------------------------------
 	// Iterador Diccionario::iterator
+	/**
+	 * @brief Clase Diccionario::iterator
+	 * 
+	 * Una instancia @e it de la clase Diccionario::iterator es un iterador para los objetos de la clase diccionario. 
+	 * Básicamente esta clase contiene un atributo privado de la clase list::iterator y usa los métodos de dicha clase de la STL
+	 */
 	class iterator {
 		private:
 		typename list<data<T,U>>::iterator dit;
@@ -277,20 +283,45 @@ public:
 	};
 
 	// Iterador Diccionario::const_iterator
+	/**
+	 * @brief Clase Diccionario::const_iterator
+	 * @see iterator
+	 * 
+	 * Similar a la clase Diccionario::iterator pero para Diccionarios constantes
+	 */
 	class const_iterator {
 		private:
 		typename list<data<T,U>>::const_iterator cdit;
+		/**
+		 * @brief Copia a partir de un list::iterator
+		 */
 		const_iterator(typename list<data<T,U>>::const_iterator cit);
 		friend class Diccionario<T,U>;
 
 		public:
+		/**
+		 * @brief Constructor sin parámetros
+		 */
 		const_iterator();
+		/**
+		 * @brief Constructor de copia
+		 */
 		const_iterator(const const_iterator &it);
-
+		/**
+		 * @brief operador de asignación
+		 */
 		const_iterator &operator=(const const_iterator& it);
-
+		/**
+		 * @brief Operador de pre-incremento
+		 */
 		const_iterator &operator++();
+		/**
+		 * @brief Operador de comparación
+		 */
 		bool operator!=(const const_iterator& it) const;
+		/**
+		 * @brief consulta y modificación de un elemento de un Diccionario
+		 */
 		const data<T,U>& operator*() const;
 	};
 
@@ -324,22 +355,33 @@ public:
 	 */
 
 	/**
-	 * 
+	 * @brief Borrar todo el contenido de una clave
+	 * @param clave La clave que identifica la entrada del diccionario
+	 * @return true si se ha eliminado, false si no se ha eliminado (no estaba)
 	 */
 	bool borrarClave (T clave);
 
 	/**
+	 * @brief Suma de diccionarios
+	 * @param otro El diccionario que se suma con el llamante
+	 * @return El diccionario que resulta de unirlos
 	 * 
+	 * Se unen las definiciones de las entradas que están en ambos y se añaden tal cual las entradas que estén solo en uno de ellos
 	 */
 	Diccionario<T,U> unionDiccionarios (const Diccionario<T,U>& otro);
 
 	/**
-	 * 
+	 * @brief Rango de entradas
+	 * @param inicio El inicio del rango
+	 * @param final El final del rango
+	 * @return Se devuelve como un Diccionario el subconjunto de entradas entre inicio y final ambas incluidas
 	 */
 	Diccionario<T,U> sacarRango (const T& inicio, const T& final);
 
 	/**
-	 * 
+	 * @brief Resta de diccionarios
+	 * @param otro El diccionario que nos dice qué entradas eliminar
+	 * @return El diccionario llamante sin las entradas de otro
 	 */
 	Diccionario<T,U> diferenciaDiccionarios (const Diccionario<T,U>& otro);
 
