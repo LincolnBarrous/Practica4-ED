@@ -5,6 +5,7 @@
 #include <string>
 #include <list>
 using namespace std;
+
 istream &operator>>(istream &is, pair<string, string> &d)
 {
 
@@ -165,7 +166,7 @@ public:
 	 * @return numero de telefonos asociados a un nombre      
      */
 	//al ser un map debe de ser 0 o 1. Si fuese un multimap podr�amos tener mas de uno
-	unsigned int contabiliza(const string &nombre)
+	unsigned int contabiliza(const string &nombre) const
 	{
 		return datos.count(nombre);
 	}
@@ -258,41 +259,100 @@ public:
 	private:
 		typename map<string, string>::iterator it;
 		friend class Guia_Tlf;
-		iterator(typename map<string, string>::iterator mit);
+		iterator(typename map<string, string>::iterator mit)
+		{
+			it = mit;
+		};
 
 	public:
-		iterator();
-		iterator(const iterator &git);
+		iterator() : it(){};
+		iterator(const iterator &git)
+		{
+			it = git.it;
+		};
 
-		iterator &operator=(const iterator &git);
+		iterator &operator=(const iterator &git)
+		{
+			if (this != &git)
+				it = git.it;
+			return *this;
+		};
 
-		iterator &operator++();
-		bool operator!=(const iterator &git);
-		pair<string, string> &operator*();
+		iterator &operator++()
+		{
+			++it;
+			return *this;
+		};
+
+		bool operator!=(const iterator &git)
+		{
+			return (it != git.it);
+		};
+
+		pair<string, string> operator*()
+		{
+			return (*it);
+		};
 	};
 
-	iterator begin();
-	iterator end();
+	iterator begin()
+	{
+		iterator ret(datos.begin());
+		return ret;
+	};
+	iterator end()
+	{
+		iterator ret(datos.end());
+		return ret;
+	};
 
-	class const_iterator 
+	class const_iterator
 	{
 		typename map<string, string>::const_iterator cit;
 		friend class Guia_Tlf;
-		const_iterator(typename map<string, string>::const_iterator mcit);
+		const_iterator(typename map<string, string>::const_iterator mcit)
+		{
+			cit = mcit;
+		};
 
 	public:
-		const_iterator();
-		const_iterator(const const_iterator &cgit);
+		const_iterator() : cit(){};
+		const_iterator(const const_iterator &cgit)
+		{
+			cit = cgit.cit;
+		};
 
-		const_iterator &operator=(const const_iterator &cgit);
+		const_iterator &operator=(const const_iterator &cgit)
+		{
+			if (this != &cgit)
+				cit = cgit.cit;
+		};
 
-		const_iterator &operator++();
-		bool operator!=(const const_iterator &cgit);
-		const pair<string, string> &operator*() const ;
+		const_iterator &operator++()
+		{
+			++cit;
+			return *this;
+		};
+		bool operator!=(const const_iterator &cgit)
+		{
+			return (cit != cgit.cit);
+		};
+		const pair<string, string> operator*() const
+		{
+			return (*cit);
+		};
 	};
 
-	const_iterator cbegin();
-	const_iterator cend();
+	const_iterator cbegin() const
+	{
+		const_iterator ret(datos.cbegin());
+		return ret;
+	};
+	const_iterator cend() const
+	{
+		const_iterator ret(datos.cend());
+		return ret;
+	};
 
 	// Métodos adicionales
 	/**
@@ -300,20 +360,57 @@ public:
 	 * 
 	 * Devuelve una guía que incluye sólo los contactos que están en ambas guías.
 	 */
-	Guia_Tlf Interseccion (const Guia_Tlf& otra) const;
+	Guia_Tlf Interseccion(const Guia_Tlf &otra)
+	{
+		Guia_Tlf nueva;
+		if (size() == 0 || otra.size() == 0)
+			return nueva;
+		for (const_iterator it = cbegin(); it != cend(); ++it)
+		{
+			if (otra.contabiliza((*it).first) > 0)
+			{
+				pair<string, string> p((*it).first, (*it).second);
+				nueva.insert(p);
+			}
+		}
+		return nueva;
+	}
 
 	/**
 	 * @brief Devuelve teléfonos cuyos nombres empiecen por una letra
 	 * @param letra La letra a buscar
 	 */
-	list<string> EmpiezaPor(char letra);
+	Guia_Tlf EmpiezaPor(char letra)
+	{
+		Guia_Tlf guia;
+		for (iterator it = begin(); it != end(); ++it)
+		{
+			if ((*it).first[0] == letra) {
+				pair<string,string> p((*it).first, (*it).second);
+				guia.insert(p);
+			}
+		}
+		return guia;
+	};
 
 	/**
 	 * @brief Modificar el teléfono asociado a un nombre
 	 * @param nombre El nombre al que cambiar el teléfono
 	 * @param num el nuevo número
 	 */
-	bool ModificarNumero (const string& nombre, const string& num);
+	bool ModificarNumero(const string &nombre, const string &num)
+	{
+		bool terminar = false;
+		for (iterator dit = begin(); dit != end() && !terminar; ++dit)
+		{
+			if ((*dit).first == nombre)
+			{
+				(*(dit.it)).second = num;
+				terminar = true;
+			}
+		}
+		return terminar;
+	};
 
 	/**
 	 * @brief Saca todos los contactos entre dos nombres (alfabéticamente)
@@ -321,7 +418,22 @@ public:
 	 * @param fin el último nombre del rango
 	 * @return Una guía que incluye los nombres entre inicio y fin ambos inclusive
 	 */
-	Guia_Tlf Rango (const string &inicio, const string& fin);
+	Guia_Tlf Rango(const string &inicio, const string &fin)
+	{
+		Guia_Tlf rango;
+		if (contabiliza(inicio) <= 0 || contabiliza(fin) <= 0)
+			return rango;
+		for (iterator it = begin(); it != end(); ++it)
+		{
+			string nombre = (*it).first;
+			if ((nombre >= inicio) && (nombre <= fin))
+			{
+				pair<string, string> p(nombre, (*it).second);
+				rango.insert(p);
+			}
+		}
+		return rango;
+	};
 };
 
 #endif

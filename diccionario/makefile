@@ -10,3 +10,6 @@ clean:
 	-rm -f $(BIN)/usodiccionario
 
 all: clean $(BIN)/usodiccionario
+
+documentacion:
+	doxygen doc/Doxyfile
